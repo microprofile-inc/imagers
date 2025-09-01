@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "wasm-pack": "wasm-pack build --target web && pnpm cpfiles",
+    "cpfiles": "cp -r pkg/* packages/imagers/src/libs",
+    "build": "pnpm -C packages/imagers run build",
+    "docs": "pnpm -C packages/docs run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vite": "^7.1.2",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}

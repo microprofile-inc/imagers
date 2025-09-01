@@ -1,0 +1,17 @@
+root = true
+
+[{src/**/*,*.toml,*.yaml}]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+trim_trailing_whitespace = true
+insert_final_newline = true
+ij_java_block_comment_at_first_column = false
+
+[{packages/docs/**/*.tsx,packages/docs/**/*.ts}]
+trim_trailing_whitespace = false
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space

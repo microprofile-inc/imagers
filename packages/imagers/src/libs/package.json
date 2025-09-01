@@ -1,0 +1,15 @@
+{
+  "name": "imagers",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "imagers_bg.wasm",
+    "imagers.js",
+    "imagers.d.ts"
+  ],
+  "main": "imagers.js",
+  "types": "imagers.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
