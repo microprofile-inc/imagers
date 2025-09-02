@@ -1,5 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
+export function image_to_png(bytes: Uint8Array): Uint8Array;
+export function image_to_jpeg(bytes: Uint8Array): Uint8Array;
+export function image_to_webp(bytes: Uint8Array): Uint8Array;
 export function crop(bytes: Uint8Array, x: number, y: number, width: number, height: number): Uint8Array;
 export function resize(bytes: Uint8Array, width: number, height: number, filter: number): Uint8Array;
 export function blur(bytes: Uint8Array, sigma: number): Uint8Array;
@@ -14,6 +17,9 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
+  readonly image_to_png: (a: number, b: number) => [number, number];
+  readonly image_to_jpeg: (a: number, b: number) => [number, number];
+  readonly image_to_webp: (a: number, b: number) => [number, number];
   readonly crop: (a: number, b: number, c: number, d: number, e: number, f: number) => [number, number];
   readonly resize: (a: number, b: number, c: number, d: number, e: number) => [number, number];
   readonly blur: (a: number, b: number, c: number) => [number, number];
