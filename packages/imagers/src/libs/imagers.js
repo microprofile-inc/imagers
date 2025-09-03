@@ -85,6 +85,20 @@ export function blur(bytes, sigma) {
 
 /**
  * @param {Uint8Array} bytes
+ * @param {number} sigma
+ * @returns {Uint8Array}
+ */
+export function fast_blur(bytes, sigma) {
+    const ptr0 = passArray8ToWasm0(bytes, wasm.__wbindgen_malloc);
+    const len0 = WASM_VECTOR_LEN;
+    const ret = wasm.fast_blur(ptr0, len0, sigma);
+    var v2 = getArrayU8FromWasm0(ret[0], ret[1]).slice();
+    wasm.__wbindgen_free(ret[0], ret[1] * 1, 1);
+    return v2;
+}
+
+/**
+ * @param {Uint8Array} bytes
  * @param {number} value
  * @returns {Uint8Array}
  */

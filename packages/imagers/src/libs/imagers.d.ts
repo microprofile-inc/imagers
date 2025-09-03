@@ -4,6 +4,7 @@ export function image_convert_format(bytes: Uint8Array, format: number): Uint8Ar
 export function crop(bytes: Uint8Array, x: number, y: number, width: number, height: number): Uint8Array;
 export function resize(bytes: Uint8Array, width: number, height: number, filter: number): Uint8Array;
 export function blur(bytes: Uint8Array, sigma: number): Uint8Array;
+export function fast_blur(bytes: Uint8Array, sigma: number): Uint8Array;
 export function huerotate(bytes: Uint8Array, value: number): Uint8Array;
 export function rotate90(bytes: Uint8Array): Uint8Array;
 export function rotate180(bytes: Uint8Array): Uint8Array;
@@ -23,6 +24,7 @@ export interface InitOutput {
   readonly crop: (a: number, b: number, c: number, d: number, e: number, f: number) => [number, number];
   readonly resize: (a: number, b: number, c: number, d: number, e: number) => [number, number];
   readonly blur: (a: number, b: number, c: number) => [number, number];
+  readonly fast_blur: (a: number, b: number, c: number) => [number, number];
   readonly huerotate: (a: number, b: number, c: number) => [number, number];
   readonly rotate90: (a: number, b: number) => [number, number];
   readonly rotate180: (a: number, b: number) => [number, number];

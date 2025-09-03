@@ -1,6 +1,7 @@
 import __wbg_init, {
   crop,
   blur,
+  fast_blur,
   invert,
   resize as _resize,
   huerotate,
@@ -28,6 +29,7 @@ export {
   __wbg_init as init,
   crop,
   blur,
+  fast_blur,
   invert,
   resize,
   huerotate,

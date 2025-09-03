@@ -5,6 +5,7 @@ export const image_convert_format: (a: number, b: number, c: number) => [number,
 export const crop: (a: number, b: number, c: number, d: number, e: number, f: number) => [number, number];
 export const resize: (a: number, b: number, c: number, d: number, e: number) => [number, number];
 export const blur: (a: number, b: number, c: number) => [number, number];
+export const fast_blur: (a: number, b: number, c: number) => [number, number];
 export const huerotate: (a: number, b: number, c: number) => [number, number];
 export const rotate90: (a: number, b: number) => [number, number];
 export const rotate180: (a: number, b: number) => [number, number];

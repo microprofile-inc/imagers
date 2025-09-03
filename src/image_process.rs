@@ -64,6 +64,12 @@ pub mod image_process {
     }
 
     #[wasm_bindgen]
+    pub fn fast_blur(bytes: Vec<u8>, sigma: f32) -> Vec<u8> {
+        let image = bytes_to_image(bytes);
+        image_format(image.fast_blur(sigma), ImageFormat::Png)
+    }
+
+    #[wasm_bindgen]
     pub fn huerotate(bytes: Vec<u8>, value: i32) -> Vec<u8> {
         let image = bytes_to_image(bytes);
         image_format(image.huerotate(value), ImageFormat::Png)
