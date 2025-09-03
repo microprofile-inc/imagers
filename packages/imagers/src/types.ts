@@ -14,3 +14,9 @@ export enum FilterType {
     // Lanczos with window 3
     Lanczos3,
 }
+
+export enum ImageFormat {
+  PNG,
+  JPEG,
+  WEBP,
+}

@@ -3,16 +3,25 @@ import __wbg_init, {
   blur,
   invert,
   resize as _resize,
-  rotate,
+  huerotate,
+  rotate90,
+  rotate180,
+  rotate270,
   flip_horizontal,
   flip_vertical,
   brighten,
-  thumbnail
+  thumbnail,
+  image_convert_format as _image_convert_format,
+  grayscale
 } from './libs/imagers';
-import {FilterType} from "./filter-type";
+import {FilterType, ImageFormat} from "./types";
 
 function resize(bytes: Uint8Array, width: number, height: number, filter: FilterType) {
   return _resize(bytes, width, height, filter);
+}
+
+function image_convert_format(bytes: Uint8Array, format: ImageFormat) {
+  return _image_convert_format(bytes, format);  
 }
 
 export {
@@ -21,9 +30,14 @@ export {
   blur,
   invert,
   resize,
-  rotate,
+  huerotate,
+  rotate90,
+  rotate180,
+  rotate270,
   flip_horizontal,
   flip_vertical,
   brighten,
-  thumbnail
+  thumbnail,
+  image_convert_format,
+  grayscale
 };
