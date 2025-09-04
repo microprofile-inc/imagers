@@ -5,6 +5,7 @@
     "wasm-pack": "wasm-pack build --target web && pnpm cpfiles",
     "cpfiles": "cp -r pkg/* packages/imagers/src/libs",
     "build": "pnpm -C packages/imagers run build",
+    "publish": "pnpm -C packages/imagers run publish",
     "docs": "pnpm -C packages/docs run dev"
   },
   "keywords": [],
