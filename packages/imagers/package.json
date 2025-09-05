@@ -1,12 +1,13 @@
 {
   "name": "@microprofile/imagers",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": false,
-  "description": "",
-  "main": "dist",
+  "description": "a image process libs in the browser",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc && vite build",
-    "publish": "npm publish --access dist"
+    "build": "tsc && cp -r src/libs dist",
+    "publish": "npm publish"
   },
   "keywords": ["rust", "image", "process", "wasm"],
   "author": "https://github.com/microprofile-inc",
