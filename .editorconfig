@@ -9,7 +9,7 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 ij_java_block_comment_at_first_column = false
 
-[{packages/docs/**/*.tsx,packages/docs/**/*.ts,packages/imagers/**/*.tsx,packages/imagers/**/*.ts}]
+[{packages/docs/**/*.tsx,packages/docs/**/*.ts,packages/docs/**/*.mjs,packages/imagers/**/*.tsx,packages/imagers/**/*.ts}]
 trim_trailing_whitespace = false
 charset = utf-8
 end_of_line = lf
