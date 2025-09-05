@@ -1,0 +1,196 @@
+import { Crop } from '@/components/examples/Crop'
+import { Blur } from '@/components/examples/Blur'
+import { Invert } from '@/components/examples/Invert'
+import { Resize } from '@/components/examples/Resize'
+import { Huerotate } from '@/components/examples/Huerotate'
+import { Rotate } from '@/components/examples/Rotate'
+import { FlipImage } from '@/components/examples/FlipImage'
+import { Brighten } from '@/components/examples/Brighten'
+import { Thumbnail } from '@/components/examples/Thumbnail'
+import { Grayscale } from '@/components/examples/Grayscale'
+
+export const metadata = {
+  title: 'Imagers SDKs',
+  description:
+    'Imagers APIs.',
+}
+
+export const sections = [
+  { title: 'Imagers APIs', id: 'Imagers-APIs' },
+]
+
+# Imagers APIs
+
+`imagers` 通过Uint8Array交换数据, 处理后默认返回png, 可以使用 image_convert_format 转换格式。
+
+```typescript
+import {init, crop} from "@microprofile/imagers";
+await init();
+
+fetch('https://example.com/some.jpg').then(res => res.bytes()).then(bytes => {
+    let newImage = crop(bytes, 0, 0, 100, 100);
+    // new Blob([newImage], {type: 'image/png'});
+    // new File([newImage], 'image.png');
+    // some code...
+})
+```
+
+# crop image
+```typescript
+fetch(png.src).then(r => r.bytes()).then(bytes => {
+  init().then(() => {
+    let result = crop(bytes, 1000, 1000, 100, 100);
+    const blob = new Blob([result], {type: 'image/png'});
+    setSrc(URL.createObjectURL( blob ));
+  });
+})
+```
+<Crop />
+
+----
+
+# blur image
+```typescript
+fetch(png.src).then(r => r.bytes()).then(bytes => {
+  init().then(() => {
+    // or use blur(bytes, 200)
+    let result = fast_blur(bytes, 200);
+    const blob = new Blob([result], {type: 'image/png'});
+    setSrc(URL.createObjectURL( blob ));
+  });
+})
+```
+<Blur />
+
+----
+
+## invert image
+```typescript
+fetch(png.src).then(r => r.bytes()).then(bytes => {
+  init().then(() => {
+    let result = invert(bytes);
+    const blob = new Blob([result], {type: 'image/png'});
+    setSrc(URL.createObjectURL( blob ));
+  });
+})
+```
+<Invert />
+
+----
+
+## resize image
+```typescript
+fetch(png.src).then(r => r.bytes()).then(bytes => {
+  init().then(() => {
+    let result = resize(bytes, 150, 150, FilterType.CatmullRom);
+    const blob = new Blob([result], {type: 'image/png'});
+    setSrc(URL.createObjectURL( blob ));
+  });
+})
+```
+<Resize />
+
+----
+
+## huerotate image
+```typescript
+fetch(png.src).then(r => r.bytes()).then(bytes => {
+  init().then(() => {
+    let result = huerotate(bytes, 100);
+    const blob = new Blob([result], {type: 'image/png'});
+    setSrc(URL.createObjectURL( blob ));
+  });
+})
+```
+<Huerotate />
+
+## rotate image
+```typescript
+init().then(() => {
+  fetch(png.src).then(r => r.bytes()).then(bytes => {
+    let result = rotate90(bytes);
+    const blob = new Blob([result], {type: 'image/png'});
+    setSrc90(URL.createObjectURL( blob ));
+
+    let result2 = rotate180(bytes);
+    const blob2 = new Blob([result2], {type: 'image/png'});
+    setSrc180(URL.createObjectURL( blob2 ));
+
+    let result3 = rotate270(bytes);
+    const blob3 = new Blob([result3], {type: 'image/png'});
+    setSrc270(URL.createObjectURL( blob3 ));
+  })
+});
+```
+<Rotate />
+
+----
+
+## flip image
+```typescript
+fetch(png.src).then(r => r.bytes()).then(bytes => {
+  init().then(() => {
+    let result = flip_vertical(bytes);
+    const blob = new Blob([result], {type: 'image/png'});
+    setSrcV(URL.createObjectURL( blob ));
+
+    let result2 = flip_horizontal(bytes);
+    const blob2 = new Blob([result2], {type: 'image/png'});
+    setSrcH(URL.createObjectURL( blob2 ));
+  });
+})
+```
+<FlipImage />
+
+----
+
+## brighten image
+```typescript
+fetch(png.src).then(r => r.bytes()).then(bytes => {
+  init().then(() => {
+    let result = brighten(bytes, 100);
+    const blob = new Blob([result], {type: 'image/png'});
+    setSrc(URL.createObjectURL( blob ));
+  });
+})
+```
+<Brighten />
+
+----
+
+## get image thumbnail
+```typescript
+fetch(png.src).then(r => r.bytes()).then(bytes => {
+  init().then(() => {
+    let result = thumbnail(bytes, 100, 100);
+    const blob = new Blob([result], {type: 'image/png'});
+    setSrc(URL.createObjectURL( blob ));
+  });
+})
+```
+<Thumbnail />
+
+----
+
+## grayscale image
+```typescript
+fetch(png.src).then(r => r.bytes()).then(bytes => {
+  init().then(() => {
+    let result = grayscale(bytes);
+    const blob = new Blob([result], {type: 'image/png'});
+    setSrc(URL.createObjectURL( blob ));
+  });
+})
+```
+<Grayscale />
+
+## image_convert_format image
+```typescript
+fetch(png.src).then(r => r.bytes()).then(bytes => {
+  init().then(() => {
+    let result = image_convert_format(bytes, ImageFormat.JPEG);
+    const blob = new Blob([result], {type: 'image/jpeg'});
+    setSrc(URL.createObjectURL( blob ));
+  });
+})
+```

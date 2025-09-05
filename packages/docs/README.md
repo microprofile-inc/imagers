@@ -1,69 +1,46 @@
-# React + TypeScript + Vite
+# Protocol
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Protocol is a [Tailwind Plus](https://tailwindcss.com/plus) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
 
-Currently, two official plugins are available:
+## Getting started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To get started with this template, first install the npm dependencies:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Next, run the development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
+
+## Customizing
+
+You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
+
+## Global search
+
+This template includes a global search that's powered by the [FlexSearch](https://github.com/nextapps-de/flexsearch) library. It's available by clicking the search input or by using the `⌘K` shortcut.
+
+This feature requires no configuration, and works out of the box by automatically scanning your documentation pages to build its index. You can adjust the search parameters by editing the `/src/mdx/search.mjs` file.
+
+## License
+
+This site template is a commercial product and is licensed under the [Tailwind Plus license](https://tailwindcss.com/plus/license).
+
+## Learn more
+
+To learn more about the technologies used in this site template, see the following resources:
+
+- [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
+- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
+- [Headless UI](https://headlessui.dev) - the official Headless UI documentation
+- [Framer Motion](https://www.framer.com/docs/) - the official Framer Motion documentation
+- [MDX](https://mdxjs.com/) - the official MDX documentation
+- [Algolia Autocomplete](https://www.algolia.com/doc/ui-libraries/autocomplete/introduction/what-is-autocomplete/) - the official Algolia Autocomplete documentation
+- [FlexSearch](https://github.com/nextapps-de/flexsearch) - the official FlexSearch documentation
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - the official Zustand documentation
