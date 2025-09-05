@@ -7,7 +7,8 @@
     "mv-md": "mv packages/imagers/src/libs/README.md packages/imagers",
     "build": "pnpm -C packages/imagers run build",
     "publish": "pnpm -C packages/imagers run publish",
-    "docs": "pnpm -C packages/docs run dev"
+    "docs": "pnpm -C packages/docs run dev",
+    "build-docs": "pnpm -C packages/docs run build"
   },
   "keywords": [],
   "author": "",
