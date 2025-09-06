@@ -2,10 +2,9 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "wasm-pack": "wasm-pack build --target web && pnpm cpfiles && pnpm mv-md",
     "cpfiles": "cp -r pkg/* packages/imagers/src/libs",
     "mv-md": "mv packages/imagers/src/libs/README.md packages/imagers",
-    "build": "pnpm -C packages/imagers run build",
+    "build": "wasm-pack build --target web && pnpm cpfiles && pnpm mv-md && pnpm -C packages/imagers run build",
     "publish": "pnpm -C packages/imagers run publish",
     "docs": "pnpm -C packages/docs run dev",
     "build-docs": "pnpm -C packages/docs run build"
