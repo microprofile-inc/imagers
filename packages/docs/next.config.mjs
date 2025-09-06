@@ -15,6 +15,7 @@ const withMDX = nextMDX({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  distDir: '../../dist',
   output: 'export',
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
