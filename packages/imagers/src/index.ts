@@ -14,7 +14,7 @@ import __wbg_init, {
   thumbnail,
   image_convert_format as _image_convert_format,
   grayscale
-} from './libs/imagers';
+} from './libs/imagers.js';
 import {FilterType, ImageFormat} from "./types";
 
 function resize(bytes: Uint8Array, width: number, height: number, filter: FilterType) {
