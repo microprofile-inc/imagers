@@ -13,8 +13,10 @@ const withMDX = nextMDX({
   },
 })
 
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: process.env.NODE_ENV === 'development' ? "" : '/imagers',
   distDir: '../../dist',
   output: 'export',
   trailingSlash: true,
