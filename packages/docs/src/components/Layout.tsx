@@ -9,6 +9,8 @@ import { Header } from '@/components/Header'
 import { Logo } from '@/components/Logo'
 import { Navigation } from '@/components/Navigation'
 import { SectionProvider, type Section } from '@/components/SectionProvider'
+import {init} from "@microprofile/imagers";
+import {useEffect, useState} from "react";
 
 export function Layout({
   children,
@@ -18,6 +20,11 @@ export function Layout({
   allSections: Record<string, Array<Section>>
 }) {
   let pathname = usePathname()
+  const [inited, setInited] = useState<boolean>(false);
+
+  useEffect(() => {
+    init().then(() => setInited(true));
+  })
 
   return (
     <SectionProvider sections={allSections[pathname] ?? []}>
@@ -37,7 +44,7 @@ export function Layout({
           </div>
         </motion.header>
         <div className="relative flex h-full flex-col px-4 pt-14 sm:px-6 lg:px-8">
-          <main className="flex-auto">{children}</main>
+          <main className="flex-auto">{inited ? children : 'loading...'}</main>
           <Footer />
         </div>
       </div>

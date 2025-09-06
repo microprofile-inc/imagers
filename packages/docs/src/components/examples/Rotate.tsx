@@ -1,6 +1,6 @@
 'use client'
 
-import {init, rotate90, rotate180, rotate270} from '@microprofile/imagers';
+import {rotate90, rotate180, rotate270} from '@microprofile/imagers';
 import {useEffect, useState} from "react";
 import png from "@/images/example.png";
 import {Spinner} from "@/components/Spinner";
@@ -11,21 +11,19 @@ export function Rotate() {
   const [src270, setSrc270] = useState<string>();
   
   useEffect(() => {
-    init().then(() => {
-      fetch(png.src).then(r => r.bytes()).then(bytes => {
-        let result = rotate90(bytes);
-        const blob = new Blob([result], {type: 'image/png'});
-        setSrc90(URL.createObjectURL( blob ));
+    fetch(png.src).then(r => r.bytes()).then(bytes => {
+      let result = rotate90(bytes);
+      const blob = new Blob([result], {type: 'image/png'});
+      setSrc90(URL.createObjectURL( blob ));
 
-        let result2 = rotate180(bytes);
-        const blob2 = new Blob([result2], {type: 'image/png'});
-        setSrc180(URL.createObjectURL( blob2 ));
+      let result2 = rotate180(bytes);
+      const blob2 = new Blob([result2], {type: 'image/png'});
+      setSrc180(URL.createObjectURL( blob2 ));
 
-        let result3 = rotate270(bytes);
-        const blob3 = new Blob([result3], {type: 'image/png'});
-        setSrc270(URL.createObjectURL( blob3 ));
-      })
-    });
+      let result3 = rotate270(bytes);
+      const blob3 = new Blob([result3], {type: 'image/png'});
+      setSrc270(URL.createObjectURL( blob3 ));
+    })
   }, []);
 
   return (

@@ -236,9 +236,9 @@ export const navigation: Array<NavGroup> = [
   {
     title: 'Documents',
     links: [
-      { title: '安装', href: '/quickstart' },
-      { title: 'API', href: '/apis' },
-      { title: '兼容平台', href: '/' },
+      { title: '安装', href: '/' },
+      { title: 'Functions & Examples', href: '/apis' },
+      { title: '兼容性', href: '/compatibility' },
     ],
   },
 ]

@@ -1,6 +1,6 @@
 'use client'
 
-import {init, crop} from '@microprofile/imagers';
+import {crop} from '@microprofile/imagers';
 import {useEffect, useState} from "react";
 import png from "@/images/example.png";
 import {Spinner} from "@/components/Spinner";
@@ -10,11 +10,9 @@ export function Crop() {
   
   useEffect(() => {
     fetch(png.src).then(r => r.bytes()).then(bytes => {
-      init().then(() => {
-        let result = crop(bytes, 1000, 1000, 100, 100);
-        const blob = new Blob([result], {type: 'image/png'});
-        setSrc(URL.createObjectURL( blob ));
-      });
+      let result = crop(bytes, 1000, 1000, 100, 100);
+      const blob = new Blob([result], {type: 'image/png'});
+      setSrc(URL.createObjectURL( blob ));
     })
   }, []);
 

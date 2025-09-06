@@ -1,6 +1,6 @@
 'use client'
 
-import {init, resize} from '@microprofile/imagers';
+import {resize} from '@microprofile/imagers';
 import {useEffect, useState} from "react";
 import png from "@/images/example.png";
 import {Spinner} from "@/components/Spinner";
@@ -11,11 +11,9 @@ export function Resize() {
   
   useEffect(() => {
     fetch(png.src).then(r => r.bytes()).then(bytes => {
-      init().then(() => {
-        let result = resize(bytes, 150, 150, FilterType.CatmullRom);
-        const blob = new Blob([result], {type: 'image/png'});
-        setSrc(URL.createObjectURL( blob ));
-      });
+      let result = resize(bytes, 150, 150, FilterType.CatmullRom);
+      const blob = new Blob([result], {type: 'image/png'});
+      setSrc(URL.createObjectURL( blob ));
     })
   }, []);
 

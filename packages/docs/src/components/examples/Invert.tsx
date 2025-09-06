@@ -1,6 +1,6 @@
 'use client'
 
-import {init, invert} from '@microprofile/imagers';
+import {invert} from '@microprofile/imagers';
 import {useEffect, useState} from "react";
 import png from "@/images/example.png";
 import {Spinner} from "@/components/Spinner";
@@ -10,11 +10,9 @@ export function Invert() {
   
   useEffect(() => {
     fetch(png.src).then(r => r.bytes()).then(bytes => {
-      init().then(() => {
-        let result = invert(bytes);
-        const blob = new Blob([result], {type: 'image/png'});
-        setSrc(URL.createObjectURL( blob ));
-      });
+      let result = invert(bytes);
+      const blob = new Blob([result], {type: 'image/png'});
+      setSrc(URL.createObjectURL( blob ));
     })
   }, []);
 

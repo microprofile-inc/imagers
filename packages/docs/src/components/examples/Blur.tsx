@@ -1,20 +1,18 @@
 'use client'
 
-import { init, fast_blur } from '@microprofile/imagers';
+import {fast_blur} from '@microprofile/imagers';
 import {useEffect, useState} from "react";
 import png from "@/images/example.png";
 import {Spinner} from "@/components/Spinner";
 
 export function Blur() {
   const [src, setSrc] = useState<string>();
-  
+
   useEffect(() => {
     fetch(png.src).then(r => r.bytes()).then(bytes => {
-      init().then(() => {
-        let result = fast_blur(bytes, 200);
-        const blob = new Blob([result], {type: 'image/png'});
-        setSrc(URL.createObjectURL( blob ));
-      });
+      let result = fast_blur(bytes, 200);
+      const blob = new Blob([result], {type: 'image/png'});
+      setSrc(URL.createObjectURL(blob));
     })
   }, []);
 
@@ -24,11 +22,11 @@ export function Blur() {
         <div className="grid grid-cols-2 gap-x-6">
           <div>
             Before
-            <img src={png.src} alt="" className={'w-60 !m-0'} />
+            <img src={png.src} alt="" className={'w-60 !m-0'}/>
           </div>
           <div>
             After
-            {src ? <img src={src} alt="" className={'w-60 !m-0'} /> : <Spinner />}
+            {src ? <img src={src} alt="" className={'w-60 !m-0'}/> : <Spinner/>}
           </div>
         </div>
       </div>

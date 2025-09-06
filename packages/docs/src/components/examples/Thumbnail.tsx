@@ -1,6 +1,6 @@
 'use client'
 
-import {init, thumbnail} from '@microprofile/imagers';
+import {thumbnail} from '@microprofile/imagers';
 import {useEffect, useState} from "react";
 import png from "@/images/example.png";
 import {Spinner} from "@/components/Spinner";
@@ -10,11 +10,9 @@ export function Thumbnail() {
   
   useEffect(() => {
     fetch(png.src).then(r => r.bytes()).then(bytes => {
-      init().then(() => {
-        let result = thumbnail(bytes, 100, 100);
-        const blob = new Blob([result], {type: 'image/png'});
-        setSrc(URL.createObjectURL( blob ));
-      });
+      let result = thumbnail(bytes, 100, 100);
+      const blob = new Blob([result], {type: 'image/png'});
+      setSrc(URL.createObjectURL( blob ));
     })
   }, []);
 

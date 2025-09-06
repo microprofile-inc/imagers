@@ -1,6 +1,6 @@
 'use client'
 
-import { init, huerotate } from '@microprofile/imagers';
+import {huerotate } from '@microprofile/imagers';
 import {useEffect, useState} from "react";
 import png from "@/images/example.png";
 import {Spinner} from "@/components/Spinner";
@@ -10,11 +10,9 @@ export function Huerotate() {
   
   useEffect(() => {
     fetch(png.src).then(r => r.bytes()).then(bytes => {
-      init().then(() => {
-        let result = huerotate(bytes, 100);
-        const blob = new Blob([result], {type: 'image/png'});
-        setSrc(URL.createObjectURL( blob ));
-      });
+      let result = huerotate(bytes, 100);
+      const blob = new Blob([result], {type: 'image/png'});
+      setSrc(URL.createObjectURL( blob ));
     })
   }, []);
 
