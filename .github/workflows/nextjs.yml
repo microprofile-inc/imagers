@@ -75,7 +75,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml', '**/yarn.lock') }}-
       - name: remove local package
-        run : pnpm install @microprofile/imagers -C packages/docs
+        run : pnpm uninstall @microprofile/imagers -C packages/docs && pnpm install @microprofile/imagers -C packages/docs
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
